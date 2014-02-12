@@ -1,0 +1,15 @@
+﻿@model WindowsWebAdmin.Core.TaskManager.TaskList
+@{
+    ViewBag.Title = "TaskList";
+}
+
+<h2>TaskList</h2>
+
+@foreach (var task in Model)
+{
+    <div class="review">
+        <p>            
+            @task.Name
+        </p>        
+    </div>
+}
