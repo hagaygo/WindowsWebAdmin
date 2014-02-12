@@ -1,15 +1,27 @@
-﻿@model WindowsWebAdmin.Core.TaskManager.TaskList
+﻿@model WindowsWebAdmin.Models.TaskManager
 @{
     ViewBag.Title = "TaskList";
 }
 
 <h2>TaskList</h2>
 
-@foreach (var task in Model)
-{
-    <div class="review">
-        <p>            
-            @task.Name
-        </p>        
-    </div>
-}
+<h3>Total Ram : @string.Format("{0:#,##0}",Model.Memory.TotalRam)</h3>
+<h3>Available Ram : @string.Format("{0:#,##0}",Model.Memory.AvailableRam)</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Process Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model.Tasks)
+        {
+            <tr>
+                <td>@task.Name</td>
+                <td>@task.ProcessId</td>
+            </tr>
+        }
+    </tbody>
+</table>   
