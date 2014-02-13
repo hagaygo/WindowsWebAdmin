@@ -1,0 +1,6 @@
+﻿@model WindowsWebAdmin.Models.ProgressData
+<div style="width:@(Model.WidthInPixels)px;height:@(Model.HeightInPixels)px;margin:auto;" class="ProgressFrame">
+    <div style="position:absolute;text-align:center;width:150px;color:white;">@Math.Round((Model.Value / 1.0 / Model.Max) * 100)%</div>
+    <div style="width: @((Model.Value / 1.0 / Model.Max) * 100)%" class="ProgressBar">
+    </div>
+</div>

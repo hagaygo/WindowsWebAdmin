@@ -19,8 +19,8 @@
 .ProgressFrame
 {    
     border:1px solid black;
-    background-color:white;
-    height:20px;
+    background-color:silver;    
+    text-align:center;
 }
 
 .ProgressBar

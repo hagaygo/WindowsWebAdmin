@@ -10,16 +10,12 @@
         <div style="display: inline-block; vertical-align: top;">
             <div><span class="Title">Ram Usage</span></div>
             <div><span>@string.Format("{0:#,##0.00}", (Model.Memory.UsedRam) / 1024.0 / 1024.0)/@string.Format("{0:#,##0.00}", Model.Memory.TotalRam / 1024.0 / 1024.0) Mb</span></div>
-            <div style="width: 150px; margin: auto;" class="ProgressFrame">
-                <div style="width:@((Model.Memory.UsedRam / 1.0 / Model.Memory.TotalRam) * 100)%;" class="ProgressBar"></div>
-            </div>
+            @Html.Partial("~/Views/Shared/ProgressBar.cshtml", new WindowsWebAdmin.Models.ProgressData() { Value = Model.Memory.UsedRam, Max = Model.Memory.TotalRam })
         </div>
         <div style="display:inline-block;vertical-align:top;">
             <div><span class="Title">Virtual Memory Usage</span></div>
             <div><span>@string.Format("{0:#,##0.00}", (Model.Memory.UsedVirtualMemory) / 1024.0 / 1024.0)/@string.Format("{0:#,##0.00}", Model.Memory.AvailableVirtualMemory / 1024.0 / 1024.0) Mb</span></div>
-            <div style="width:150px;margin:auto;" class="ProgressFrame">
-                <div style="width:@((Model.Memory.UsedVirtualMemory / 1.0 / Model.Memory.AvailableVirtualMemory) * 100)%" class="ProgressBar"></div>
-            </div>
+            @Html.Partial("~/Views/Shared/ProgressBar.cshtml", new WindowsWebAdmin.Models.ProgressData() { Value = Model.Memory.UsedVirtualMemory, Max = Model.Memory.AvailableVirtualMemory })                        
         </div>
         @foreach (var cpu in Model.Cpu)
         { 
@@ -28,7 +24,7 @@
             <div>
                 <span>@cpu.Name (@cpu.Cores Cores) @cpu.CurrentSpeed Mhz</span>                
             </div>            
-            <div><span>Load : @cpu.Load%</span></div>
+            <div style="float:left;">Load</div> @Html.Partial("~/Views/Shared/ProgressBar.cshtml", new WindowsWebAdmin.Models.ProgressData() { Value = Convert.ToUInt64(cpu.Load), Max = 100 })
         </div>
         }
     </div>
