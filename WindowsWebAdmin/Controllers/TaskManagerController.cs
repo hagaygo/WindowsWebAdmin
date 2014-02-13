@@ -22,7 +22,7 @@ namespace WindowsWebAdmin.Controllers
         {
             var tm = new WindowsWebAdmin.Models.TaskManager();
             tm.Tasks = GetRunningTasks();
-            tm.Memory = Memory.GetMemoryInfo();            
+            tm.FillBaseData();
             return View(tm);
         }
 

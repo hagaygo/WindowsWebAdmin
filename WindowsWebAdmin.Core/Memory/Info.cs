@@ -10,5 +10,11 @@ namespace WindowsWebAdmin.Core.Memory
     {
         public ulong TotalRam { get; set;  }
         public ulong AvailableRam { get; set; }
+        public ulong UsedRam 
+        {
+            get { return TotalRam - AvailableRam; }
+        }
+        public ulong UsedVirtualMemory { get; set; }
+        public ulong AvailableVirtualMemory { get; set; }        
     }
 }

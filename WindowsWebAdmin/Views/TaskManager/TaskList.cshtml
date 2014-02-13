@@ -2,12 +2,9 @@
 @{
     ViewBag.Title = "TaskList";
 }
+@Html.Partial("~/Views/Shared/_MachineStat.cshtml",Model) 
 
-<h2>TaskList</h2>
-
-<h3>Total Ram : @string.Format("{0:#,##0}",Model.Memory.TotalRam)</h3>
-<h3>Available Ram : @string.Format("{0:#,##0}",Model.Memory.AvailableRam)</h3>
-
+<h2>Tasks List</h2>
 <table>
     <thead>
         <tr>
@@ -15,7 +12,7 @@
             <th>Process Id</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody>        
         @foreach (var task in Model.Tasks)
         {
             <tr>

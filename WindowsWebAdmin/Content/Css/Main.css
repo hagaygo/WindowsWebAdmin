@@ -1,0 +1,34 @@
+﻿body 
+{
+    font-family: Arial;
+    font-size : 10pt;
+}
+
+.MachineStat 
+{
+    background-color:azure;
+    border:2px solid black;
+    padding:3px;
+    font-size:12pt;
+}
+
+.MachineStat SPAN {
+    
+}
+
+.ProgressFrame
+{    
+    border:1px solid black;
+    background-color:white;
+    height:20px;
+}
+
+.ProgressBar
+{
+    height:100%;
+    background-color:navy;
+}
+.Title 
+{
+    font-weight:bold;
+}

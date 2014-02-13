@@ -35,6 +35,8 @@ namespace WindowsWebAdmin.Core.WinApi
             GlobalMemoryStatusEx(ref data);
             i.AvailableRam = data.ullAvailPhys;
             i.TotalRam = data.ullTotalPhys;
+            i.UsedVirtualMemory = data.ullTotalPageFile - data.ullTotalPhys;
+            i.AvailableVirtualMemory = data.ullAvailPhys - data.ullAvailPageFile;
             return i;
         }
     }
