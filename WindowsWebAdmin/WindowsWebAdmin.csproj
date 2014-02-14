@@ -99,10 +99,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DiskController.cs" />
     <Compile Include="Controllers\TaskManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Disk.cs" />
     <Compile Include="Models\ProgressData.cs" />
     <Compile Include="Models\TaskManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\ProgressBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\TabStrip.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Disk\Info.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
