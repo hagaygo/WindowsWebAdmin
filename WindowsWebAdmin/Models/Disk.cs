@@ -8,6 +8,6 @@ namespace WindowsWebAdmin.Models
 {
     public class Disk : ModelBase
     {
-
+        public List<WindowsWebAdmin.Core.Disk.Info> Disks { get; set; }
     }
 }

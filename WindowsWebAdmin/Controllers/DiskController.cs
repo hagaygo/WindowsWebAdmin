@@ -17,6 +17,7 @@ namespace WindowsWebAdmin.Controllers
         {
             var i = new WindowsWebAdmin.Models.Disk();
             i.FillBaseData();
+            i.Disks = WindowsWebAdmin.Core.WinApi.Disk.GetDisks();
             return View(i);
         }
 	}

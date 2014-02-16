@@ -54,3 +54,21 @@
 {
    color: black;
 }
+
+.DiskPanel
+{    
+    border: 1px solid black;
+    background-color: rgb(221, 228, 181);
+    vertical-align:top;
+    padding:5px;
+    margin-top:20px;   
+    margin-right:20px; 
+    display:inline-block;
+    min-width:200px;    
+    height:130px;
+}
+
+.DiskPanel DIV.ProgressContainer
+{
+    margin-top:5px;
+}

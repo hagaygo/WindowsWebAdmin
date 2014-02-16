@@ -5,5 +5,20 @@
 @Html.Partial("~/Views/Shared/_MachineStat.cshtml", Model)
 @Html.Partial("~/Views/Shared/TabStrip.cshtml", Model)
 
-<h2>Disk</h2>
+@foreach(var d in Model.Disks)
+{
+<div class="DiskPanel">
+    <div>Name : @d.Name</div>
+    <div>Volume : @d.VolumeLabel</div>
+    <div>Type : @d.Type</div>
+    <div>Format : @d.DriveFormat</div>
+    <div>Size : @if (d.TotalSize.HasValue) { @((d.TotalSize.Value / 1.0 / 1024 / 1024).ToString("#,##0.00") + " Mb"); }</div>
+    <div>Free Space : @if (d.AvailableFreeSpace.HasValue) { @((d.AvailableFreeSpace.Value / 1.0 / 1024 / 1024).ToString("#,##0.00") + " Mb"); }</div>
+    @if(d.TotalSize.HasValue)
+    { 
+        <div class="ProgressContainer">@Html.Partial("~/Views/Shared/ProgressBar.cshtml", new WindowsWebAdmin.Models.ProgressData() { Value = Convert.ToUInt64(d.TotalSize.Value - d.AvailableFreeSpace.Value), Max = Convert.ToUInt64(d.TotalSize.Value) })</div>
+    }
+</div>    
+}
+
 
