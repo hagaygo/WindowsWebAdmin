@@ -6,19 +6,25 @@
 @Html.Partial("~/Views/Shared/TabStrip.cshtml", Model) 
 
 
-<table>
+<table class="TaskList">
     <thead>
         <tr>
             <th>Name</th>
             <th>Process Id</th>
+            @*<th>Processor Time</th>*@
+            <th>Working Set</th>
+            <th>Private Memory</th>
         </tr>
     </thead>
     <tbody>        
-        @foreach (var task in Model.Tasks)
+        @foreach (var task in Model.Tasks.OrderByDescending(x => x.PrivateMemory + x.WorkingSet))
         {
             <tr>
                 <td>@task.Name</td>
                 <td>@task.ProcessId</td>
+                @*<td>@task.ProcessorTime.ToString("HH:mm:ss")</td>*@
+                <td>@((task.WorkingSet / 1.0 / 1024/ 1024).ToString("#,##0.00")) Mb</td>
+                <td>@((task.PrivateMemory / 1.0 / 1024/ 1024).ToString("#,##0.00")) Mb</td>
             </tr>
         }
     </tbody>

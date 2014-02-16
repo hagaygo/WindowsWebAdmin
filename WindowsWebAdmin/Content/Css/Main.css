@@ -72,3 +72,25 @@
 {
     margin-top:5px;
 }
+
+.TaskList 
+{
+    border-collapse: collapse;
+    background-color:rgb(221, 228, 181);
+    border:none;
+}
+
+.TaskList TH
+{
+    text-align:left;
+    background-color:silver;
+    padding-right:3px;    
+    padding-left:3px;
+    border:1px solid black;
+}
+
+.TaskList TD 
+{
+    border:1px solid black;
+    
+}

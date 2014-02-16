@@ -35,7 +35,10 @@ namespace WindowsWebAdmin.Controllers
             {
                 var t = new Task();
                 t.Name = p.ProcessName;
-                t.ProcessId = p.Id;         
+                t.ProcessId = p.Id;
+                t.PrivateMemory = p.PrivateMemorySize64;
+                t.WorkingSet = p.WorkingSet64;                
+                //t.ProcessorTime = p.TotalProcessorTime; // access denied
                 tl.Add(t);
             }
 

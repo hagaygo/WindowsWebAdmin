@@ -9,6 +9,9 @@ namespace WindowsWebAdmin.Core.TaskManager
     public class Task
     {
         public string Name { get; set;  }
-        public int ProcessId { get; set; }        
+        public int ProcessId { get; set; }
+        public long PrivateMemory { get; set; }
+        public long WorkingSet { get; set; }
+        public TimeSpan ProcessorTime { get; set; }
     }
 }
