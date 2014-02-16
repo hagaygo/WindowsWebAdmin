@@ -37,8 +37,9 @@ namespace SelfHostedWWA
             trayIcon.ContextMenu = new ContextMenu(new MenuItem[] { miExit });
             trayIcon.Icon = new System.Drawing.Icon(System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("SelfHostedWWA.wwa.ico"));
             trayIcon.Visible = true;
+
             
-            var srv = new CassiniDev.CassiniDevServer();            
+            
             var path = ConfigurationManager.AppSettings["path"];
             if (string.IsNullOrEmpty(path))
                 path = ".";
@@ -46,7 +47,8 @@ namespace SelfHostedWWA
             if (string.IsNullOrEmpty(port))
                 port = "8889";
             trayIcon.Text = string.Format("Windows Web Admin (Port {0})", port);
-            srv.StartServer(path, Convert.ToInt32(port), string.Empty, string.Empty);
+            var srv = new CassiniDev.Server(Convert.ToInt32(port), "/", path, System.Net.IPAddress.Any);            
+            srv.Start();            
         }
 
         void Exit(object sender, EventArgs e)
