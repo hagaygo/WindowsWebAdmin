@@ -154,3 +154,8 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/WindowsWebAdmin/CassiniDev4-lib.dll
+/WindowsWebAdmin/SelfHostedWWA.exe
+/WindowsWebAdmin/SelfHostedWWA.exe.config
+/WindowsWebAdmin/SelfHostedWWA.vshost.exe
+/WindowsWebAdmin/SelfHostedWWA.vshost.exe.config
